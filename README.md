@@ -17,6 +17,12 @@
 - 🐧 Linux
 - 🔮 HarmonyOS Next
 
+## 效果
+
+鸿蒙
+
+![image-20250228163112624](/Users/jianguo/Library/Application Support/typora-user-images/image-20250228163112624.png)
+
 ## 功能特点
 
 - 🎮 经典的Hangman游戏玩法
