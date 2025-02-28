@@ -21,7 +21,7 @@
 
 鸿蒙
 
-![image-20250228163112624](/Users/jianguo/Library/Application Support/typora-user-images/image-20250228163112624.png)
+![image-20250228163112624](https://nutpi-e41b.obs.cn-north-4.myhuaweicloud.com/image-20250228163112624.png)
 
 ## 功能特点
 
