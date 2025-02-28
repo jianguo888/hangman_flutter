@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2024 坚果派
+ * 微信公众号：nutpi
+ * 官网：https://www.nutpi.net/
+ */
+
 import 'package:flutter/material.dart';
 
 class AppColor {

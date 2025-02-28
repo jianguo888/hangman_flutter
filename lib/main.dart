@@ -1,13 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:hangman_game_tut/ui/colors.dart';
-import 'package:hangman_game_tut/ui/widget/figure_image.dart';
-import 'package:hangman_game_tut/ui/widget/letter.dart';
-import 'package:hangman_game_tut/utils/game.dart';
+/*
+ * Copyright (c) 2024 坚果派
+ * 微信公众号：nutpi
+ * 官网：https://www.nutpi.net/
+ *
+ * 这是一个简单的Hangman（刽子手）游戏应用
+ * 玩家需要猜测隐藏的单词，每次猜错一个字母，刽子手图像就会逐步显示
+ * 游戏结束条件：成功猜出单词或刽子手图像完全显示（6次失败机会）
+ */
 
+import 'package:flutter/material.dart';
+import 'ui/colors.dart';
+import 'ui/widget/figure_image.dart';
+import 'ui/widget/letter.dart';
+import 'utils/game.dart';
+
+// 应用入口函数
 void main() {
   runApp(const MyApp());
 }
 
+// 应用根组件
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -19,6 +31,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// 游戏主页面组件
 class HomeApp extends StatefulWidget {
   const HomeApp({Key? key}) : super(key: key);
 
@@ -27,9 +40,10 @@ class HomeApp extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomeApp> {
-  //choosing the game word
+  // 游戏的目标单词，玩家需要猜这个词
   String word = "Flutter".toUpperCase();
-  //Create a list that contains the Alphabet, or you can just copy and paste it
+
+  // 字母表，用于生成可选择的字母按钮
   List<String> alphabets = [
     "A",
     "B",
@@ -58,12 +72,13 @@ class _HomeAppState extends State<HomeApp> {
     "Y",
     "Z"
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.primaryColor,
       appBar: AppBar(
-        title: Text("Hangman"),
+        title: Text("刽子手游戏"),
         elevation: 0,
         centerTitle: true,
         backgroundColor: AppColor.primaryColor,
@@ -75,17 +90,15 @@ class _HomeAppState extends State<HomeApp> {
           Center(
             child: Stack(
               children: [
-                //let's make the figure widget
-                //let's add the images to the asset folder
-                //Okey now we will create a Game class
-                //Now the figure will be built according to the number of tries
-                figureImage(Game.tries >= 0, "assets/hang.png"),
-                figureImage(Game.tries >= 1, "assets/head.png"),
-                figureImage(Game.tries >= 2, "assets/body.png"),
-                figureImage(Game.tries >= 3, "assets/ra.png"),
-                figureImage(Game.tries >= 4, "assets/la.png"),
-                figureImage(Game.tries >= 5, "assets/rl.png"),
-                figureImage(Game.tries >= 6, "assets/ll.png"),
+                // 刽子手图像组件
+                // 根据游戏尝试次数（Game.tries）逐步显示不同部分
+                figureImage(Game.tries >= 0, "assets/hang.png"), // 绞刑架
+                figureImage(Game.tries >= 1, "assets/head.png"), // 头部
+                figureImage(Game.tries >= 2, "assets/body.png"), // 身体
+                figureImage(Game.tries >= 3, "assets/ra.png"), // 右手
+                figureImage(Game.tries >= 4, "assets/la.png"), // 左手
+                figureImage(Game.tries >= 5, "assets/rl.png"), // 右腿
+                figureImage(Game.tries >= 6, "assets/ll.png"), // 左腿
               ],
             ),
           ),
